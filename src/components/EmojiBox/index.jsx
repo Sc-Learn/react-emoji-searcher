@@ -4,7 +4,12 @@ import styles from './EmojiBox.module.css'
 
 const EmojiBox = ({ title, symbol }) => {
   return (
-    <div className={styles.emojiBox}>
+    <div 
+      onClick={() => {
+        navigator.clipboard.writeText(symbol)
+      }}
+      className={styles.emojiBox}
+    >
       <p
         className={styles.emoji}
         dangerouslySetInnerHTML={{
