@@ -9,6 +9,7 @@ import Input from './components/Input';
 
 function App() {
   const [emojisData, setEmojisData] = useState([]);
+  const [searchText, setSearchText] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -31,20 +32,24 @@ function App() {
     fetchEmojis()
   }, [])
 
+  const handleSearchEmojis = (e) => {
+    setSearchText(e.target.value);
+  }
+
   return (
     <>
       <Navbar />
 
       <Container>
         <Input 
-          onChange={}
-          value={}
+          onChange={handleSearchEmojis}
+          value={searchText}
         />
  
         {loading && <Empty text="Loading..." />}
         {error && <Empty text="Error!" />}
 
-        {emojisData.length > 0 && <Emojis emojisData={emojisData} />}
+        {emojisData.length > 0 && <Emojis emojisData={emojisData} searchText={searchText} />}
       </Container>
     </>
   );
