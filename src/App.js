@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Container from './components/Container';
 import Empty from './components/Empty';
 import Emojis from './components/Emojis';
+import Input from './components/Input';
 
 function App() {
   const [emojisData, setEmojisData] = useState([]);
@@ -35,7 +36,10 @@ function App() {
       <Navbar />
 
       <Container>
-        <h1>Hello, world!</h1>
+        <Input 
+          onChange={}
+          value={}
+        />
  
         {loading && <Empty text="Loading..." />}
         {error && <Empty text="Error!" />}
